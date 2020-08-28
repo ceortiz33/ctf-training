@@ -5,5 +5,4 @@ https://pwnable.kr/
 
 Luego de ingresar a la maquina huesped usando:
 
-ssh fd@pwnable.kr -p2222
-
+```fd@pwnable:~$ ssh fd@pwnable.kr -p2222```
