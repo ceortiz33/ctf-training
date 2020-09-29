@@ -36,6 +36,57 @@ Se hace una llamada a la clase PayloadRequest , Volley facilita y permite el uso
 
 ![](/images/android/flags_reto1.png)
 
+En esta clase se muestran las dos flags la primera se encripta con MD5 y luego se codifica con Base64 y se asigna al parametro X-MAC. La segunda flag se asigna a X-Flag y se guarda en texto plano.
+
+Otro metodo para obtener la flag es usando BurpSuite, cuando se inicie la aplicacion esta herramienta capturara la peticion.
+
+**Flags obtenidas en BurpSuite**
+
+![](/images/android/burpsuitereto1.png)
+
+## Intentional Exercise(Moderate, 1 Flag)
+
+**Level13.apk**
+
+De la misma manera que el reto anterior se decompila la aplicacion para proceder al analisis estatico.
+
+![](/images/android/level13.png)
+
+Se muestra un enlace que hace mencion a la flag, sin embargo al darle clic aparece que un mensaje diciendo que la solicitud no es valida.
+
+![](/images/android/level132.png)
+
+Como primer paso se mira en el manifiesto por informacion relevante que permita dar pautas sobre que pasos seguir en el analisis.
+
+**Manifiesto de Android**
+
+![](/images/android/manifest2.png)
+
+En el manifiesto aparecen dos intent-filters **android:name:="android.intent.action.BROWSABLE"** esto corresponde a un Deep Link, un deep link es basicamente una URL que permite desplazarse por contenido especifico de la aplicacion.
+
+Para hacer pruebas con los DeepLinks segun la documentacion de desarrollo de Android se puede usar el siguiente comando usando la herramienta **ADB**
+
+`$ adb shell am start -W -a android.intent.action.VIEW -d <URI> <PACKAGE>`
+
+Usando este comando se reemplazan URI y package por los respectivos valores en la aplicacion.
+
+`adb shell am start -W -a "android.intent.action.VIEW" -d "http://level13.hacker101.com" com.hacker101.level13`
+
+La activity MainActivity aparece en el manifiesto por lo que se considerara el punto de partida. Dentro de la clase MainActivity se muestra que la aplicacion crea un WebView y dos strings son declarados donde el mas representativo muestra una URL a la que apunta el WebView.
+
+![](/images/android/level13mainactivity.png)
+
+Si se ingresa esa URL en un navegador se obtiene el mismo resultado, la peticion no es valida.
+
+![](/images/android/urlejecutada.png)
+
+
+
+
+
+
+
+
 
 
 ## Referencias
