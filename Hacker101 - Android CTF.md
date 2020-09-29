@@ -38,7 +38,9 @@ Se hace una llamada a la clase PayloadRequest , Volley facilita y permite el uso
 
 
 
+## Referencias
 
++ https://medium.com/bugbountywriteup/hacker101-ctf-android-challenge-writeups-f830a382c3ce
 
 
 
