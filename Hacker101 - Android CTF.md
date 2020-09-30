@@ -86,6 +86,8 @@ Examinando nuevamente el manifiesto data es la URL formada por el scheme y el ho
 
 En el ultimo bloque de codigo se crea un message digest usando el algoritmo de hash SHA-256, el hash se actualiza dos veces la primera con la key **s00p3rs3cr3tk3y**, y la segunda con el valor de str2, para finalmente construir la URL con str seguido de &hash=
 
+![](/images/android/bloque.png)
+
 Usando Burpsuite para analizar la peticion que pasa por la aplicacion se muestra lo siguiente.
 
 ![](/images/android/estructuraurl.png)
@@ -139,6 +141,13 @@ Tambien se puede testear usando una prueba de concepto con un archivo .html y tr
 
 ![](/images/android/poc1.png)
 
+## Oauthbreaker (Moderate, 2 Flags)
+
+![](/images/android/oauth.png)
+
+![](/images/android/oauth2.png)
+
+`http://34.74.105.127/612a23dd68/oauth?redirect_url=oauth%3A%2F%2Ffinal%2Flogin&response_type=token&scope=all`
 
 
 
@@ -150,7 +159,8 @@ Tambien se puede testear usando una prueba de concepto con un archivo .html y tr
 
 
 
-![](/images/android/bloque.png)
+
+
 
 
 
