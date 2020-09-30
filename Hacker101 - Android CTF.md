@@ -80,9 +80,71 @@ Si se ingresa esa URL en un navegador se obtiene el mismo resultado, la peticion
 
 ![](/images/android/urlejecutada.png)
 
+Examinando nuevamente el manifiesto data es la URL formada por el scheme y el host dando como resultado http://level13.hacker101.com , el metodo substring(28) ignora los primeros 28 caracteres y el resultado lo asigna a la variable **str2** para luego concatenarlo con **str**. En la otra condicion se chequea si el simbolo **?** existe en la cadena y de no ser asi lo agrega al final.
+
+![](/images/android/mainactivity2.png)
+
+En el ultimo bloque de codigo se crea un message digest usando el algoritmo de hash SHA-256, el hash se actualiza dos veces la primera con la key **s00p3rs3cr3tk3y**, y la segunda con el valor de str2, para finalmente construir la URL con str seguido de &hash=
+
+Usando Burpsuite para analizar la peticion que pasa por la aplicacion se muestra lo siguiente.
+
+![](/images/android/estructuraurl.png)
+
+Dando a entender que la estructura de la URL seria `http://34.94.3.143/398abac4c8/appRoot?&hash="hash value"`, el valor de str2 es vacio seguido de **?**, luego &hash= y su valor.
+
+Ingresando la peticion completa `http://34.94.3.143/35e3227bcf/appRoot?&hash=61f4518d844a9bd27bb971e55a23cd6cf3a9f5ef7f46285461cf6cf135918a1a` en el navegador produce el mismo resultado, inspeccionando el codigo fuente 
+
+![](/images/android/codigofuente1.png)
+
+En el codigo fuente se muestra que **/flagBearer** es parte de la URL, si se agrega esta parte la URL completa seria `http://34.94.3.143/35e3227bcf/appRoot/flagBearer?&hash=61f4518d844a9bd27bb971e55a23cd6cf3a9f5ef7f46285461cf6cf135918a1a`
+
+![](/images/android/urlcorrecta.png)
+
+A pesar que el valor de la URL es correcta se muestra el mensaje **Invalid hash**.
+
+![](/images/android/urlincorrecta.png)
+
+Para comprobar que efectivamente /flagBearer era el valor de str2 se reemplaza por cualquier cadena en este caso por **flag**
+
+Recapitulando a pesar de tener la URL correcta el hash no es valido, esto se produce debido a que el metodo substring(28) elimina parte de la URL por lo que se pasa un valor vacio a str2 y al momento de realizar el hash SHA-256 este no encuentra nada en str2 produciendo un hash incorrecto.
+
+`adb shell am start -W -a "android.intent.action.VIEW" -d "http://level13.hacker101.com/flagBearer" com.hacker101.level13`
+
+Un metodo para poder bypassear esta validacion es a traves de Insufficient URL validation, cuando no existe una validacion correcta del origen de la URl se puede cargar una url arbitraria, mayor informacion en https://medium.com/bugbountywriteup/the-zaheck-of-android-deep-links-a5f57dc4ae4c. 
+
+
+![](/images/android/flag_reto2.png)
+
+Si se quiere generar el hash correcto se puede utilizar **Cyberchef** que es una herramienta que permite generar distintos de hash
+
+![](/images/android/hashcorrecto.png)
+
+Luego se agrega este nuevo hash a la URL dando como resultado la URL `http://34.94.3.143/35e3227bcf/appRoot/flagBearer?&hash=8743a18df6861ced0b7d472b34278dc29abba81b3fa4cf836013426d6256bd5e`
+
+**NOTA**
+
+Debido a que se expiro la sesion mientras se hacian las pruebas `http://34.94.3.143/35e3227bcf/` paso a ser `http://34.74.105.127/246febb4bb/`, sin embargo el resto de la URL permanece igual.
+
+![](/images/android/flag_reto2_2.png)
+
+Tambien se puede testear usando una prueba de concepto con un archivo .html y transferirlo a /sdcard y abrirlo directamente desde el dispositivo movil.
+
+`adb push poc.html /sdcard/Download`
+
+![](/images/android/poc1.png)
 
 
 
+
+
+
+
+
+
+
+
+
+![](/images/android/bloque.png)
 
 
 
