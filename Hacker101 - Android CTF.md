@@ -131,6 +131,12 @@ Tambien se puede testear usando una prueba de concepto con un archivo .html y tr
 
 `adb push poc.html /sdcard/Download`
 
+```html
+<html>
+	<a href="http://34.74.105.127/246febb4bb/appRoot/flagBearer?&hash=8743a18df6861ced0b7d472b34278dc29abba81b3fa4cf836013426d6256bd5e">test</a>
+</html>
+```
+
 ![](/images/android/poc1.png)
 
 
