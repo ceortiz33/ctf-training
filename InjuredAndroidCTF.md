@@ -32,6 +32,11 @@ Al ingresar esa cadena superamos el reto FlagOneLogin
 
 ![](/images/injuredandroid/img7.png)
 
+## Flag Two: Exported Activity
+
+Cuando una activity esta exportada como **true** esto implica que dicha activity puede ser accedida por otras aplicaciones, esto no necesariamente implica un riesgo de seguridad si ese es el proposito o si se aplican ciertos permisos para que solo tengan acceso ciertas aplicaciones. En este reto nos sugiere que hallemos la manera de pasar a traves de la aplicacion e invocar otras activities, para esto el mismo reto sugiere que se enfoque en los terminos **exported** y **activities puede ser ingresados mediante adb o drozer**.
+
+
 
 
 
