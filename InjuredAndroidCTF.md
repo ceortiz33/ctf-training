@@ -60,6 +60,15 @@ Ingresamos esta flag y aparece una ventana mencionando que hemos logrado superar
 
 ![](/images/injuredandroid/img12.png)
 
+## Flag Four - Login 2
+
+![](/images/injuredandroid/img13.png)
+
+![](/images/injuredandroid/img14.png)
+
+![](/images/injuredandroid/img15.png)
+
+
 
 
 
