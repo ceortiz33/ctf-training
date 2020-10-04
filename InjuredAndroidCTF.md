@@ -36,6 +36,31 @@ Al ingresar esa cadena superamos el reto FlagOneLogin
 
 Cuando una activity esta exportada como **true** esto implica que dicha activity puede ser accedida por otras aplicaciones, esto no necesariamente implica un riesgo de seguridad si ese es el proposito o si se aplican ciertos permisos para que solo tengan acceso ciertas aplicaciones. En este reto nos sugiere que hallemos la manera de pasar a traves de la aplicacion e invocar otras activities, para esto el mismo reto sugiere que se enfoque en los terminos **exported** y **activities puede ser ingresados mediante adb o drozer**.
 
+En el manifiesto de Android se puede encontrar informacion util que sirve como guia para posibles ataques, como resultado de la busqueda se obtuvo la activity b25lActivity, TestBroadcastReceiver y MainActivity que tiene un intent-filter que por defecto se exporta como true.
+
+![](/images/injuredandroid/img8.png)
+
+Usando el comando con adb se puede saltar acceder al contenido de la flag.
+
+`adb shell am start -n b3nac.injuredandroid/b3nac.injuredandroid.b25lActivity`
+
+![](/images/injuredandroid/img9.png)
+
+## Flag Three: Resources
+
+En este reto se solicita una flag para superarlo. Entre las pistas que nos proporcionan para el reto esta que se buscan dentro de los archivos .xml
+
+![](/images/injuredandroid/img10.png)
+
+Siguiendo la recomendacion buscamos el archivo strings.xml localizado en resources.arsc/res/values/strings.xml y encontrando la flag en uno de los strings declarados para la aplicacion.
+
+![](/images/injuredandroid/img11.png)
+
+Ingresamos esta flag y aparece una ventana mencionando que hemos logrado superar el reto.
+
+![](/images/injuredandroid/img12.png)
+
+
 
 
 
