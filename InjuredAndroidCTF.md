@@ -2,10 +2,7 @@
 
 ![](/images/injuredandroid/img1.png)
 
-
-INTRO.....
-INJUREDANDROID ES UNA APLICACION QUE SIRVE COMO ENTRENAMIENTO  PARA EL ANALISIS DE VULNERABILIDADES Y BUG BOUNTY DE DISPOSITIVOS MOBILES, TIENE DIFERENTES RETOS COMO.........
-
+InjuredAndroid es una aplicacion que sirve como entrenamiento para el analisis de vulnerabilidades en Android y Bug Bounty de dispositivos mobiles, algunos de los retos que presenta son XSS, ataques mediante Deeplinks, API credentials, entre otros.
 
 ## XSS Test
 
