@@ -62,12 +62,21 @@ Ingresamos esta flag y aparece una ventana mencionando que hemos logrado superar
 
 ## Flag Four - Login 2
 
+Al igual que el primer reto el objetivo es conseguir la flag y de esta manera superarlo. 
+
 ![](/images/injuredandroid/img13.png)
+
+Examinamos el codigo fuente de la clase FlagFourActivity y en la funcion submitFlag nos muestra como declara un arreglo de bytes usando la funcion g().a()
 
 ![](/images/injuredandroid/img14.png)
 
+En este metodo se utiliza Base64decode a una cadena de caracteres.
+
 ![](/images/injuredandroid/img15.png)
 
+Podemos usar Cyberchef para que decodifique el contenido de la cadena de caracteres dando como resultado la flag del reto 4.
+
+![](/images/injuredandroid/img16.png)
 
 
 
