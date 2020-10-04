@@ -10,6 +10,28 @@ Como primer reto esta **XSS Test** dentro de ella se muestra un campo para ingre
 
 ![](/images/injuredandroid/img2.png)
 
-`<script>alert('XSS')</script>`
+Si usamos uno de las cadenas mas comunes para probar XSS como `<script>alert('XSS')</script>` muestra el siguiente resultado.
 
 ![](/images/injuredandroid/img3.png)
+
+El reto consiste en mostrar que es vulnerable a XSS, ademas motiva al usuario a mirar dentro del codigo fuente de la activity "DisplayPostXSS". El codigo fuente se muestra en la siguiente imagen.
+
+![](/images/injuredandroid/img4.png)
+
+Examinando el codigo encontramos que se declara una webview pero ademas de las configuraciones como que se ejecute el navegador de Chrome, se utiliza `setJavaScriptEnabled(true)` que es una opcion vulnerable porque habilita la ejecucion de codigo Javascript.
+
+## Flag One Login
+
+![](/images/injuredandroid/img5.png)
+
+Para superar este reto debemos ingresar la flag correspondiente y enviarla para ganar acceso, en el triangulo rojo nos muestra pistas como 'La flag esta en tu nariz' y 'La Flag tambien esta en la GUI', en el codigo fuente de la clase FlagOneActivity se muestra una string en texto plano  que presumiblemente seria la flag.
+
+![](/images/injuredandroid/img6.png)
+
+Al ingresar esa cadena superamos el reto FlagOneLogin
+
+![](/images/injuredandroid/img7.png)
+
+
+
+
