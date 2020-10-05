@@ -191,6 +191,8 @@ Usando adb pull podemos extraer la base de datos desde el dispositivo hasta nues
 
 ![](/images/injuredandroid/img28.png)
 
+DB Browser for SQLite muestra las credenciales que estaban dentro de **Thisisatest.db**. El contenido de 'The flag is also a password' corresponde al algoritmo ROT 47 usando Cyberchef podemos recuperar el contenido y muestra una URL con la clave.
+
 ![](/images/injuredandroid/img32.png)
 
 ![](/images/injuredandroid/img29.png)
