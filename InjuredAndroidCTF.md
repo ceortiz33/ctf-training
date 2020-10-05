@@ -108,6 +108,10 @@ Con la ayuda de Cyberchef podemos averiguar cual era la key que se utilizaba par
 
 ## Flag Six: Login 3
 
+En este reto tambien se utiliza el metodo k.a() que realiza la conversion de un string base64 a encriptacion DES, para superar este reto debemos ingresar esta flag en el campo correspondiente y lograr que aparezca la activity de reto superado. Frida es una herramienta que nos permite realizar llamadas a funciones durante el analisis dinamico, una de sus funciones mas comunes es realizar hooking de metodos y funciones para modificar componentes durante la ejecucion de la aplicacion.
+
+Creamos un script Javascript que permita capturar la funcion k.a() y modificar el parametro string que recibe cuando es ejecutada.
+
 ```javascript
 //flag6.js
 
@@ -141,6 +145,8 @@ Java.perform(function x() {
 });
 ```
 
+Luego tenemos que llamar este archivo javascript desde un script en python teniendo el **frida-server** habilitado.
+
 ```python
 #flag6.py
 
@@ -161,6 +167,8 @@ input()
 
 ```
 
+Ejecutamos el script usando `python flag6.py` e ingresamos cualquier texto en el campo de flagSixActivity, este se reemplazara con el string que agregamos en el script dando como resultado la flag del reto.
 
+![](/images/injuredandroid/img23.png)
 
 
