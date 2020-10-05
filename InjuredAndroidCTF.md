@@ -106,7 +106,56 @@ Con la ayuda de Cyberchef podemos averiguar cual era la key que se utilizaba par
 
 ![](/images/injuredandroid/img22.png)
 
+## Flag Six: Login 3
 
+```javascript
+console.log("Script loaded succesfully");
+
+Java.perform(function x() {
+	console.log("Inside java perform function");
+	//Class the function belongs to.
+	var my_class = Java.use("b3nac.injuredandroid.k");
+	// Hook the function with parameter string
+	var string_class = Java.use("java.lang.String");
+	my_class.a.overload("java.lang.String").implementation = function(x){
+		console.log("**************************************");
+		//Create a new String and call the function with the new input
+		var my_string = string_class.$new("k3FElEG9lnoWbOateGhj5pX6QsXRNJKh///8Jxi8KXW7iDpk2xRxhQ==");
+		console.log("Original arg: " + x);
+		var ret = this.a(my_string)
+		console.log("Return value: " + ret);
+		console.log("***************************************")
+		return ret;
+	};
+
+//Find an instance of the class and call "decrypt"
+	Java.choose("b3nac.injuredandroid", {
+		onMatch: function(instance) {
+			console.log("Found instance: " + instance);
+			console.log("Result of decrypt func: " + instance.a());
+		},
+		onComplete: function () { }	
+	});
+});
+```
+
+```python
+import frida
+import time
+
+device = frida.get_usb_device() # get android device
+pid = device.spawn(["b3nac.injuredandroid"])
+device.resume(pid)
+time.sleep(1) # without it Java perform fails
+session = device.attach(pid)
+script = session.create_script(open("flag6.js").read())
+script.load()
+
+# Prevent the python script from terminating
+
+input()
+
+```
 
 
 
