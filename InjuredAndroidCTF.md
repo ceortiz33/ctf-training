@@ -171,4 +171,16 @@ Ejecutamos el script usando `python flag6.py` e ingresamos cualquier texto en el
 
 ![](/images/injuredandroid/img23.png)
 
+## Flag Seven: SQLite
+
+En este reto nos piden que ingresemos tanto la flag como una password,  run adb as root 
+stay on this activity 
+
+![](/images/injuredandroid/img24.png)
+
+Inspeccionando el codigo de la activty FlagSevenActivity encontramos lo siguiente, se generan dos campos para la base de datos **title** y **subtitle**, ademas se usa **Base64.decode** para descifrar el contenido de strings. Recordando uno de las pistas que se mencionaban en el reto "stay on this activity", hace referencia al metodo OnDestroy() ya que si salimos de la aplicacion se destruye la base de datos **Thisisatest.db**.
+
+![](/images/injuredandroid/img25.png)
+
+
 
