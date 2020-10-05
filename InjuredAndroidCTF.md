@@ -78,6 +78,34 @@ Podemos usar Cyberchef para que decodifique el contenido de la cadena de caracte
 
 ![](/images/injuredandroid/img16.png)
 
+## Flag Five: Exported Broadcast Receiver
+
+A diferencia de los demas retos, aqui no se muestra ningun texto ni campo que llenar, solo aparece un mensaje cada vez que entramos.
+
+![](imagesinjuredandroid/img17.png)
+
+La Flag aparece luego de varios intentos de ingresar. Sin embargo, para buscar una explicacion a este comportamiento revisamos el codigo fuente en busca de mayor informacion
+
+La clase FlagFiveActivity hace una llamada a FlagFiveReceiver()
+
+![](/images/injuredandroid/img18.png)
+
+FlagFiveReceiver extiende BroadcastReceiver, ademas comprobamos que el mensaje mostrado depende del numero de intentos realizados para esto usamos el contador i que al incrementar su valor va mostrando nuevos mensajes, cuando el contador llega a 2 se muestra la flag
+
+![](/images/injuredandroid/img19.png)
+
+El mensaje final se produce concatenando "You are a winner" con el resultado de la funcion k.a(Zkdlt0WwtLQ=), investigando mas a profundidad la funcion k.a realiza un proceso de conversion, a() recibe como parametro una cadena de texto y posteriormente utiliza el algoritmo DES para encriptar.
+
+![](/images/injuredandroid/img20.png)
+
+La imagen anterior muestra dos arrays de bytes, si exploramos el contenido de esos metodos se muestra dos keys utilizadas para la encriptacion DES, particularmente se utiliza solo el primero ya que la funcion **h.b()** retorna f1911a que es el array utilizado en **k.a()**
+
+![](/images/injuredandroid/img21.png)
+
+Con la ayuda de Cyberchef podemos averiguar cual era la key que se utilizaba para la encriptacion DES.
+
+![](/images/injuredandroid/img22.png)
+
 
 
 
