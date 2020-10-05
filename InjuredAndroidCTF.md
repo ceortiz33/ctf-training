@@ -210,6 +210,10 @@ Intentamos decodificar con el hash MD5 dando como resultado la otra key para el 
 ![](/images/injuredandroid/img31.png)
 
 
+## Referencias
+
++ https://medium.com/bugbountywriteup/injuredandroid-ctf-writeup-41dd40165cfa
+
 
 
 
