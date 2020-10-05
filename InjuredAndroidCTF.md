@@ -209,6 +209,48 @@ Intentamos decodificar con el hash MD5 dando como resultado la otra key para el 
 
 ![](/images/injuredandroid/img31.png)
 
+## Flag Eight: AWS
+
+![](/images/injuredandroid/img34.png)
+
+En este reto nos piden ingresar la flag y como pista tenemos 'AWS CLI' y 'AWS Profiles and credentials'
+
+En el archivo strings.xml encontramos el AWS_ID y AWS_SECRET
+
+```xml
+<string name="AWS_ID">AKIAZ36DGKTUIOLDOBN6</string>
+<string name="AWS_SECRET">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</string>
+```
+Usamos awscli para capturar la flag
+
+```aws s3 ls s3://injuredandroid --profile injuredandroid```
+
+## Flag Nine: Firebase
+
+```java
+public FlagNineFirebaseActivity() {
+        byte[] decode = Base64.decode("ZmxhZ3Mv", 0);
+        this.v = decode;
+        d.m.b.d.b(decode, "decodedDirectory");
+        Charset charset = StandardCharsets.UTF_8;
+        d.m.b.d.b(charset, "StandardCharsets.UTF_8");
+        this.w = new String(decode, charset);
+        f b2 = f.b();
+        d.m.b.d.b(b2, "FirebaseDatabase.getInstance()");
+        d d2 = b2.d();
+        d.m.b.d.b(d2, "FirebaseDatabase.getInstance().reference");
+        this.x = d2;
+        d h = d2.h(this.w);
+        d.m.b.d.b(h, "database.child(refDirectory)");
+        this.y = h;
+    }
+```
+
+Decodificamos el contenido en base64 de ZmxhZ3Mv obteniendo flags/
+
+Ingresamos en la direccion https://injuredandroid.firebaseio.com/flags.json y obtenemos W25pbmUhX2ZsYWdd
+
+
 
 ## Referencias
 
