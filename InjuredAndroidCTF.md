@@ -109,6 +109,8 @@ Con la ayuda de Cyberchef podemos averiguar cual era la key que se utilizaba par
 ## Flag Six: Login 3
 
 ```javascript
+//flag6.js
+
 console.log("Script loaded succesfully");
 
 Java.perform(function x() {
@@ -140,6 +142,8 @@ Java.perform(function x() {
 ```
 
 ```python
+#flag6.py
+
 import frida
 import time
 
