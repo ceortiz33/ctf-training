@@ -201,8 +201,11 @@ El contenido de 'The flag is also a password' corresponde al algoritmo ROT 47 us
 
 ![](/images/injuredandroid/img33.png)
 
-El contenido de 'The flag hash!' es.....
+Con la ayuda de CyberChef nos da una pista sobre que tipo de hash corresponde al string
+
 ![](/images/injuredandroid/img30.png)
+
+Intentamos decodificar con el hash MD5 dando como resultado la otra key para el reto.
 
 ![](/images/injuredandroid/img31.png)
 
