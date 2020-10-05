@@ -191,6 +191,8 @@ Usando adb pull podemos extraer la base de datos desde el dispositivo hasta nues
 
 ![](/images/injuredandroid/img28.png)
 
+![](/images/injuredandroid/img32.png)
+
 ![](/images/injuredandroid/img29.png)
 
 ![](/images/injuredandroid/img30.png)
