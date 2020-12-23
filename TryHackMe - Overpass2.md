@@ -10,7 +10,7 @@ In this CTF we start with a pcap file of the logs of a previous attack to the si
 
 # Steps
 
-![](/images/overpass2/wireshark)
+![](/images/overpass2/overpass2_1)
 
 
 
