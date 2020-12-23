@@ -17,3 +17,4 @@ In this CTF we start with a pcap file of the logs of a previous attack to the si
 
 ### What was the URL of the page they used to upload a reverse shell?
 
+/d*********t/
